@@ -6,3 +6,5 @@ curl -sL "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zol
 /tmp/zola build
 echo "--- build output ---"
 ls -la public/
+echo "--- public/index.html ---"
+cat public/index.html

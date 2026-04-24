@@ -2,7 +2,7 @@ base_url = "https://dapctl.com"
 title = "dapctl"
 description = "TUI/CLI sync tool for HiFi Digital Audio Players"
 compile_sass = true
-minify_html = true
+minify_html = false
 generate_feeds = false
 
 [extra]
