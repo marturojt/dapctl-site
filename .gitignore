@@ -1,3 +1,4 @@
-public/
-.zola-cache/
-.sass-cache/
+.next/
+node_modules/
+out/
+.env*.local
