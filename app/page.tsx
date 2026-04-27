@@ -99,8 +99,13 @@ export default function Home() {
         <h2 className="section-title">status</h2>
         <p className="status-text">
           <strong>v0.1.0 released</strong> — sync engine, TUI (profiles · diff · progress · log),
-          guided profile wizard, 27 tests.<br />
+          guided profile wizard, 36 tests.<br />
           Real-world validated: 2,108 FLAC files · 75 GB · HiBy R4 microSD · mirror + additive.
+        </p>
+        <p className="status-text">
+          <strong>v0.2 in progress</strong> — blake3 checksum verification (silent corruption
+          detection), tag-based filters (artist · genre · sample rate · bit depth via lofty).
+          Next: ffmpeg transcoding, M3U export.
         </p>
         <a className="backlog-link" href={`${GITHUB}/releases/tag/v0.1.0`}>
           → v0.1.0 release notes
