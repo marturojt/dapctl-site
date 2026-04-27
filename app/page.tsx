@@ -7,8 +7,11 @@ const installHtml = `<span class="comment"># pre-built binaries — Linux · mac
 <span class="comment"># from source (requires Rust 1.80+)</span>
 <span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl --tag v0.1.0
 
-<span class="comment"># package managers — coming soon</span>
-<span class="comment"># brew install marturojt/tap/dapctl   (Homebrew)</span>
+<span class="comment"># Homebrew (macOS / Linux)</span>
+<span class="prompt">$</span> brew tap marturojt/tap
+<span class="prompt">$</span> brew install dapctl
+
+<span class="comment"># AUR / Scoop — coming soon</span>
 <span class="comment"># yay -S dapctl-bin                   (AUR)</span>
 <span class="comment"># scoop install dapctl                (Scoop)</span>`
 
