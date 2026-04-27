@@ -157,8 +157,9 @@ section {
   color: var(--fg);
   white-space: pre;
 }
-.comment { color: var(--muted); }
-.prompt  { color: var(--dim); user-select: none; }
+.comment   { color: var(--muted); }
+.prompt    { color: var(--dim); user-select: none; }
+.code-link { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
 
 .install-note { font-size: 0.8rem; color: var(--muted); }
 

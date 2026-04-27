@@ -1,9 +1,13 @@
 const GITHUB = 'https://github.com/marturojt/dapctl'
+const RELEASES = 'https://github.com/marturojt/dapctl/releases/latest'
 
-const installHtml = `<span class="comment"># from source — available now</span>
-<span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl
+const installHtml = `<span class="comment"># pre-built binaries — Linux · macOS · Windows</span>
+<span class="prompt">$</span> <a href="${RELEASES}" class="code-link">github.com/marturojt/dapctl/releases/latest</a>
 
-<span class="comment"># package managers — coming in v0.1</span>
+<span class="comment"># from source (requires Rust 1.80+)</span>
+<span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl --tag v0.1.0
+
+<span class="comment"># package managers — coming soon</span>
 <span class="comment"># brew install marturojt/tap/dapctl   (Homebrew)</span>
 <span class="comment"># yay -S dapctl-bin                   (AUR)</span>
 <span class="comment"># scoop install dapctl                (Scoop)</span>`
@@ -18,7 +22,7 @@ export default function Home() {
           <a className="btn" href={GITHUB}>GitHub</a>
           <a className="btn" href="#install">Install</a>
         </nav>
-        <span className="status-chip">pre-0.1 · active development</span>
+        <span className="status-chip">v0.1.0 · released</span>
       </header>
 
       <section id="how-it-works">
@@ -71,7 +75,9 @@ export default function Home() {
           <pre dangerouslySetInnerHTML={{ __html: installHtml }} />
         </div>
         <p className="install-note">
-          Requires Rust 1.80+ (<a href="https://rustup.rs">rustup.rs</a>). Binaries ship with v0.1.
+          Pre-built static binaries for Linux (x86_64 + aarch64), macOS (universal), and Windows
+          are available on the <a href={RELEASES}>releases page</a>.
+          Source install requires Rust 1.80+ (<a href="https://rustup.rs">rustup.rs</a>).
         </p>
       </section>
 
@@ -89,11 +95,16 @@ export default function Home() {
       <section id="status">
         <h2 className="section-title">status</h2>
         <p className="status-text">
-          v0.1 MVP in progress — sync engine, profile catalogue, and TUI shipping first.<br />
-          Real-world tested: 2,108 FLAC files · 75 GB · HiBy R4 microSD.
+          <strong>v0.1.0 released</strong> — sync engine, TUI (profiles · diff · progress · log),
+          guided profile wizard, 27 tests.<br />
+          Real-world validated: 2,108 FLAC files · 75 GB · HiBy R4 microSD · mirror + additive.
         </p>
+        <a className="backlog-link" href={`${GITHUB}/releases/tag/v0.1.0`}>
+          → v0.1.0 release notes
+        </a>
+        {' '}
         <a className="backlog-link" href={`${GITHUB}/blob/main/BACKLOG.md`}>
-          → full roadmap (BACKLOG.md)
+          → roadmap (BACKLOG.md)
         </a>
       </section>
 
