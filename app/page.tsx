@@ -5,7 +5,7 @@ const installHtml = `<span class="comment"># pre-built binaries — Linux · mac
 <span class="prompt">$</span> <a href="${RELEASES}" class="code-link">github.com/marturojt/dapctl/releases/latest</a>
 
 <span class="comment"># from source (requires Rust 1.80+)</span>
-<span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl --tag v0.1.0
+<span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl --tag v0.2.0
 
 <span class="comment"># Homebrew (macOS / Linux)</span>
 <span class="prompt">$</span> brew tap marturojt/tap
@@ -25,7 +25,7 @@ export default function Home() {
           <a className="btn" href={GITHUB}>GitHub</a>
           <a className="btn" href="#install">Install</a>
         </nav>
-        <span className="status-chip">v0.1.0 · released</span>
+        <span className="status-chip">v0.2.0 · released</span>
       </header>
 
       <section id="how-it-works">
@@ -68,6 +68,10 @@ export default function Home() {
           <li><strong>Cross-platform</strong> — Linux · macOS · Windows, exFAT / FAT32 / NTFS</li>
           <li><strong>TUI + CLI</strong> — interactive terminal UI or fully scriptable with <code>--yes</code> / <code>--dry-run</code></li>
           <li><strong>Modes</strong> — additive (never deletes) or mirror (exact replica)</li>
+          <li><strong>Tag-based filters</strong> — include/exclude by artist · genre · sample rate · bit depth via lofty</li>
+          <li><strong>Transcode pipeline</strong> — ffmpeg rules (e.g. DSF→FLAC) with blake3-keyed cache; re-encodes only when source changes</li>
+          <li><strong>M3U export</strong> — <code>dapctl export m3u</code> generates a DAP-ready playlist from the same filters as sync</li>
+          <li><strong>Checksum verify</strong> — blake3 streaming hash detects silent corruption even when size and mtime match</li>
           <li><strong>GPLv3</strong> — no telemetry, offline by default, no lock-in</li>
         </ul>
       </section>
@@ -98,15 +102,21 @@ export default function Home() {
       <section id="status">
         <h2 className="section-title">status</h2>
         <p className="status-text">
-          <strong>v0.1.0 released</strong> — sync engine, TUI (profiles · diff · progress · log),
-          guided profile wizard, 36 tests.<br />
-          Real-world validated: 2,108 FLAC files · 75 GB · HiBy R4 microSD · mirror + additive.
+          <strong>v0.2.0 released</strong> — blake3 checksum verification, tag-based filters
+          (artist · genre · sample rate · bit depth), ffmpeg transcode pipeline with blake3-keyed
+          cache, <code>dapctl export m3u</code>, 39 tests.
         </p>
         <p className="status-text">
-          <strong>v0.2 in progress</strong> — blake3 checksum verification (silent corruption
-          detection), tag-based filters (artist · genre · sample rate · bit depth via lofty).
-          Next: ffmpeg transcoding, M3U export.
+          <strong>v0.1.0</strong> — sync engine, TUI (profiles · diff · progress · log · wizard),
+          real-world validated: 2,108 FLAC · 75 GB · HiBy R4 microSD.
         </p>
+        <p className="status-text">
+          <strong>v0.3 up next</strong> — TUI audio player (rodio + symphonia), <code>dapctl audit</code> (offline read-only library health report), <code>dapctl cover fetch</code> (MusicBrainz + Cover Art Archive, opt-in with <code>--online</code>).
+        </p>
+        <a className="backlog-link" href={`${GITHUB}/releases/tag/v0.2.0`}>
+          → v0.2.0 release notes
+        </a>
+        {' '}
         <a className="backlog-link" href={`${GITHUB}/releases/tag/v0.1.0`}>
           → v0.1.0 release notes
         </a>
