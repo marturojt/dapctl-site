@@ -5,7 +5,7 @@ const installHtml = `<span class="comment"># pre-built binaries — Linux · mac
 <span class="prompt">$</span> <a href="${RELEASES}" class="code-link">github.com/marturojt/dapctl/releases/latest</a>
 
 <span class="comment"># from source (requires Rust 1.80+)</span>
-<span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl --tag v0.2.0
+<span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl --tag v0.3.0
 
 <span class="comment"># Homebrew (macOS / Linux)</span>
 <span class="prompt">$</span> brew tap marturojt/tap
@@ -25,7 +25,7 @@ export default function Home() {
           <a className="btn" href={GITHUB}>GitHub</a>
           <a className="btn" href="#install">Install</a>
         </nav>
-        <span className="status-chip">v0.2.0 · released</span>
+        <span className="status-chip">v0.3.0 · released</span>
       </header>
 
       <section id="how-it-works">
@@ -72,6 +72,7 @@ export default function Home() {
           <li><strong>Transcode pipeline</strong> — ffmpeg rules (e.g. DSF→FLAC) with blake3-keyed cache; re-encodes only when source changes</li>
           <li><strong>M3U export</strong> — <code>dapctl export m3u</code> generates a DAP-ready playlist from the same filters as sync</li>
           <li><strong>Checksum verify</strong> — blake3 streaming hash detects silent corruption even when size and mtime match</li>
+          <li><strong>TUI audio player</strong> — library browser (artist → album → track), gapless playback, HiFi display (sample rate · bit depth · bitrate · channels), <code>/</code> incremental search, source toggle library ↔ DAP</li>
           <li><strong>GPLv3</strong> — no telemetry, offline by default, no lock-in</li>
         </ul>
       </section>
@@ -102,7 +103,13 @@ export default function Home() {
       <section id="status">
         <h2 className="section-title">status</h2>
         <p className="status-text">
-          <strong>v0.2.0 released</strong> — blake3 checksum verification, tag-based filters
+          <strong>v0.3.0 released</strong> — TUI audio player with SQLite-backed library browser
+          (artist → album → track, tag-grouped), gapless playback, HiFi metadata display
+          (sample rate · bit depth · bitrate · channels), <code>/</code> incremental search,
+          source toggle library ↔ DAP destination, home landing screen.
+        </p>
+        <p className="status-text">
+          <strong>v0.2.0</strong> — blake3 checksum verification, tag-based filters
           (artist · genre · sample rate · bit depth), ffmpeg transcode pipeline with blake3-keyed
           cache, <code>dapctl export m3u</code>, 39 tests.
         </p>
@@ -111,8 +118,14 @@ export default function Home() {
           real-world validated: 2,108 FLAC · 75 GB · HiBy R4 microSD.
         </p>
         <p className="status-text">
-          <strong>v0.3 up next</strong> — TUI audio player (rodio + symphonia), <code>dapctl audit</code> (offline read-only library health report), <code>dapctl cover fetch</code> (MusicBrainz + Cover Art Archive, opt-in with <code>--online</code>).
+          <strong>v0.4 up next</strong> — album art display (kitty/sixel), synced lyrics (<code>.lrc</code>),
+          play history + resume position, <code>dapctl audit</code> (offline library health),
+          <code>dapctl cover fetch</code> (MusicBrainz + Cover Art Archive, opt-in <code>--online</code>).
         </p>
+        <a className="backlog-link" href={`${GITHUB}/releases/tag/v0.3.0`}>
+          → v0.3.0 release notes
+        </a>
+        {' '}
         <a className="backlog-link" href={`${GITHUB}/releases/tag/v0.2.0`}>
           → v0.2.0 release notes
         </a>
