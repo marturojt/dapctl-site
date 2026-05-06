@@ -5,7 +5,7 @@ const installHtml = `<span class="comment"># pre-built binaries — Linux · mac
 <span class="prompt">$</span> <a href="${RELEASES}" class="code-link">github.com/marturojt/dapctl/releases/latest</a>
 
 <span class="comment"># from source (requires Rust 1.80+)</span>
-<span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl --tag v0.3.0
+<span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl --tag v0.4.0
 
 <span class="comment"># Homebrew (macOS / Linux)</span>
 <span class="prompt">$</span> brew tap marturojt/tap
@@ -25,7 +25,7 @@ export default function Home() {
           <a className="btn" href={GITHUB}>GitHub</a>
           <a className="btn" href="#install">Install</a>
         </nav>
-        <span className="status-chip">v0.3.0 · released</span>
+        <span className="status-chip">v0.4.0 · released</span>
       </header>
 
       <section id="how-it-works">
@@ -72,7 +72,10 @@ export default function Home() {
           <li><strong>Transcode pipeline</strong> — ffmpeg rules (e.g. DSF→FLAC) with blake3-keyed cache; re-encodes only when source changes</li>
           <li><strong>M3U export</strong> — <code>dapctl export m3u</code> generates a DAP-ready playlist from the same filters as sync</li>
           <li><strong>Checksum verify</strong> — blake3 streaming hash detects silent corruption even when size and mtime match</li>
-          <li><strong>TUI audio player</strong> — library browser (artist → album → track), gapless playback, HiFi display (sample rate · bit depth · bitrate · channels), <code>/</code> incremental search, source toggle library ↔ DAP</li>
+          <li><strong>TUI audio player</strong> — library browser (artist → album → track), gapless playback, HiFi display (sample rate · bit depth · bitrate · channels), <code>/</code> incremental search, source toggle library ↔ DAP, synced lyrics (<code>.lrc</code>), play history + resume</li>
+          <li><strong>Library normalisation</strong> — case and diacritic-insensitive grouping; "Kings Of Leon" / "kings of leon" and "Rosalía" / "Rosalia" merge into one entry</li>
+          <li><strong>dapctl audit</strong> — offline library health report: missing tags, absent cover art, format mix, track-number gaps; human table + <code>--json</code></li>
+          <li><strong>dapctl cover fetch</strong> — batch downloads <code>folder.jpg</code> via MusicBrainz → Cover Art Archive → iTunes fallback; 30-day cache; opt-in <code>--online</code> flag</li>
           <li><strong>GPLv3</strong> — no telemetry, offline by default, no lock-in</li>
         </ul>
       </section>
@@ -96,14 +99,22 @@ export default function Home() {
           <li>Not a duplicate finder or library manager</li>
           <li>Not a music streaming client or cloud sync tool</li>
           <li>No DLNA, AirPlay, or network streaming</li>
-          <li>No telemetry, no analytics, no network calls by default</li>
+          <li>No telemetry, no analytics — network calls only when you pass <code>--online</code> (cover fetch / audit)</li>
         </ul>
       </section>
 
       <section id="status">
         <h2 className="section-title">status</h2>
         <p className="status-text">
-          <strong>v0.3.0 released</strong> — TUI audio player with SQLite-backed library browser
+          <strong>v0.4.0 released</strong> — synced lyrics (<code>.lrc</code> auto-scroll),
+          play history + resume position, sleep timer, equalizer animation, library
+          normalisation (case + diacritics), <code>dapctl audit</code> (offline library health:
+          missing tags · absent covers · format mix · track gaps),
+          <code>dapctl cover fetch</code> (MusicBrainz → Cover Art Archive → iTunes, opt-in
+          <code>--online</code>, 30-day cache), TUI UX improvements across player · diff · wizard · profiles.
+        </p>
+        <p className="status-text">
+          <strong>v0.3.0</strong> — TUI audio player with SQLite-backed library browser
           (artist → album → track, tag-grouped), gapless playback, HiFi metadata display
           (sample rate · bit depth · bitrate · channels), <code>/</code> incremental search,
           source toggle library ↔ DAP destination, home landing screen.
@@ -118,10 +129,14 @@ export default function Home() {
           real-world validated: 2,108 FLAC · 75 GB · HiBy R4 microSD.
         </p>
         <p className="status-text">
-          <strong>v0.4 up next</strong> — album art display (kitty/sixel), synced lyrics (<code>.lrc</code>),
-          play history + resume position, <code>dapctl audit</code> (offline library health),
-          <code>dapctl cover fetch</code> (MusicBrainz + Cover Art Archive, opt-in <code>--online</code>).
+          <strong>v1.0 up next</strong> — SSH source (<code>ssh://host:/path</code>),
+          community DAP profiles (≥ 6 devices with CI fixtures), AcoustID duplicate detection,
+          official distribution (Homebrew core, Scoop, AUR).
         </p>
+        <a className="backlog-link" href={`${GITHUB}/releases/tag/v0.4.0`}>
+          → v0.4.0 release notes
+        </a>
+        {' '}
         <a className="backlog-link" href={`${GITHUB}/releases/tag/v0.3.0`}>
           → v0.3.0 release notes
         </a>
