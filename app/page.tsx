@@ -5,7 +5,7 @@ const installHtml = `<span class="comment"># pre-built binaries — Linux · mac
 <span class="prompt">$</span> <a href="${RELEASES}" class="code-link">github.com/marturojt/dapctl/releases/latest</a>
 
 <span class="comment"># from source (requires Rust 1.80+)</span>
-<span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl --tag v0.4.0
+<span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl --tag v1.0.0
 
 <span class="comment"># Homebrew (macOS / Linux)</span>
 <span class="prompt">$</span> brew tap marturojt/tap
@@ -25,7 +25,7 @@ export default function Home() {
           <a className="btn" href={GITHUB}>GitHub</a>
           <a className="btn" href="#install">Install</a>
         </nav>
-        <span className="status-chip">v0.4.0 · released</span>
+        <span className="status-chip">v1.0.0 · released</span>
       </header>
 
       <section id="how-it-works">
@@ -76,6 +76,9 @@ export default function Home() {
           <li><strong>Library normalisation</strong> — case and diacritic-insensitive grouping; "Kings Of Leon" / "kings of leon" and "Rosalía" / "Rosalia" merge into one entry</li>
           <li><strong>dapctl audit</strong> — offline library health report: missing tags, absent cover art, format mix, track-number gaps; human table + <code>--json</code></li>
           <li><strong>dapctl cover fetch</strong> — batch downloads <code>folder.jpg</code> via MusicBrainz → Cover Art Archive → iTunes fallback; 30-day cache; opt-in <code>--online</code> flag</li>
+          <li><strong>dapctl cover embed</strong> — writes cover art into FLAC, MP3, M4A, OGG, and Opus track tags from <code>folder.jpg</code></li>
+          <li><strong>SSH source</strong> — <code>source = "ssh://user@host/path"</code> in sync profiles; uses your existing <code>~/.ssh</code> config, keys, and agent; zero extra dependencies</li>
+          <li><strong>7 builtin DAP profiles</strong> — FiiO M21 · FiiO M11 · AK SR35 · HiBy R6 · Shanling M3 Ultra · iBasso DX320 · Generic; all CI-validated</li>
           <li><strong>GPLv3</strong> — no telemetry, offline by default, no lock-in</li>
         </ul>
       </section>
@@ -106,7 +109,14 @@ export default function Home() {
       <section id="status">
         <h2 className="section-title">status</h2>
         <p className="status-text">
-          <strong>v0.4.0 released</strong> — synced lyrics (<code>.lrc</code> auto-scroll),
+          <strong>v1.0.0 released</strong> — SSH source (<code>ssh://user@host/path</code>),
+          <code>dapctl cover embed</code> (write cover art into track tags), <code>dapctl profile delete</code>
+          (CLI + TUI with two-press confirm), 5 new builtin DAP profiles (7 total, all CI-validated),
+          path-limit warnings from DAP firmware spec, typed error taxonomy with structured exit codes,
+          <code>NO_COLOR</code> support, selective mode write-back, 54 tests.
+        </p>
+        <p className="status-text">
+          <strong>v0.4.0</strong> — synced lyrics (<code>.lrc</code> auto-scroll),
           play history + resume position, sleep timer, equalizer animation, library
           normalisation (case + diacritics), <code>dapctl audit</code> (offline library health:
           missing tags · absent covers · format mix · track gaps),
@@ -128,11 +138,10 @@ export default function Home() {
           <strong>v0.1.0</strong> — sync engine, TUI (profiles · diff · progress · log · wizard),
           real-world validated: 2,108 FLAC · 75 GB · HiBy R4 microSD.
         </p>
-        <p className="status-text">
-          <strong>v1.0 up next</strong> — SSH source (<code>ssh://host:/path</code>),
-          community DAP profiles (≥ 6 devices with CI fixtures), AcoustID duplicate detection,
-          official distribution (Homebrew core, Scoop, AUR).
-        </p>
+        <a className="backlog-link" href={`${GITHUB}/releases/tag/v1.0.0`}>
+          → v1.0.0 release notes
+        </a>
+        {' '}
         <a className="backlog-link" href={`${GITHUB}/releases/tag/v0.4.0`}>
           → v0.4.0 release notes
         </a>
