@@ -5,7 +5,7 @@ const installHtml = `<span class="comment"># pre-built binaries — Linux · mac
 <span class="prompt">$</span> <a href="${RELEASES}" class="code-link">github.com/marturojt/dapctl/releases/latest</a>
 
 <span class="comment"># from source (requires Rust 1.80+)</span>
-<span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl --tag v1.0.0
+<span class="prompt">$</span> cargo install --git https://github.com/marturojt/dapctl --tag v1.0.1
 
 <span class="comment"># Homebrew (macOS / Linux)</span>
 <span class="prompt">$</span> brew tap marturojt/tap
@@ -25,7 +25,7 @@ export default function Home() {
           <a className="btn" href={GITHUB}>GitHub</a>
           <a className="btn" href="#install">Install</a>
         </nav>
-        <span className="status-chip">v1.0.0 · released</span>
+        <span className="status-chip">v1.0.1 · released</span>
       </header>
 
       <section id="how-it-works">
@@ -109,7 +109,13 @@ export default function Home() {
       <section id="status">
         <h2 className="section-title">status</h2>
         <p className="status-text">
-          <strong>v1.0.0 released</strong> — SSH source (<code>ssh://user@host/path</code>),
+          <strong>v1.0.1 released</strong> — fixes a crash on any filename containing
+          multibyte Unicode characters (e.g. <code>Mitternachtslöwe.flac</code>); five
+          string-truncation helpers replaced with char-boundary-safe code; dependency
+          security updates (crossbeam-epoch, anyhow).
+        </p>
+        <p className="status-text">
+          <strong>v1.0.0</strong> — SSH source (<code>ssh://user@host/path</code>),
           <code>dapctl cover embed</code> (write cover art into track tags), <code>dapctl profile delete</code>
           (CLI + TUI with two-press confirm), 5 new builtin DAP profiles (7 total, all CI-validated),
           path-limit warnings from DAP firmware spec, typed error taxonomy with structured exit codes,
@@ -138,6 +144,10 @@ export default function Home() {
           <strong>v0.1.0</strong> — sync engine, TUI (profiles · diff · progress · log · wizard),
           real-world validated: 2,108 FLAC · 75 GB · HiBy R4 microSD.
         </p>
+        <a className="backlog-link" href={`${GITHUB}/releases/tag/v1.0.1`}>
+          → v1.0.1 release notes
+        </a>
+        {' '}
         <a className="backlog-link" href={`${GITHUB}/releases/tag/v1.0.0`}>
           → v1.0.0 release notes
         </a>
