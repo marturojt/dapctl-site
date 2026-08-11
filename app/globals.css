@@ -89,6 +89,20 @@ code {
   letter-spacing: 0.02em;
 }
 
+/* ── Screenshots ──────────────────────────────────── */
+.screenshot-hero img,
+.screenshot-grid img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--border);
+}
+.screenshot-hero { margin-bottom: 0.75rem; }
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
 /* ── Sections ─────────────────────────────────────── */
 section {
   padding: 2.5rem 0;
@@ -211,6 +225,10 @@ footer {
 .footer-build { font-size: 0.8rem; color: var(--dim); }
 
 /* ── Responsive ───────────────────────────────────── */
+@media (max-width: 640px) {
+  .screenshot-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 480px) {
   body { padding: 1.5rem 1rem 2.5rem; }
   .hero { padding: 2.5rem 0 2rem; }

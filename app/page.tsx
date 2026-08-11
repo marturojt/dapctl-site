@@ -20,13 +20,29 @@ export default function Home() {
     <div className="page">
       <header className="hero">
         <h1 className="hero-title">dapctl</h1>
-        <p className="hero-tagline">TUI/CLI sync tool for HiFi Digital Audio Players</p>
+        <p className="hero-tagline">
+          A terminal-first toolkit to sync, audit, and manage music libraries
+          on HiFi Digital Audio Players — with a safe preview of every change
+          before a single file is copied.
+        </p>
         <nav className="hero-links">
           <a className="btn" href={GITHUB}>GitHub</a>
           <a className="btn" href="#install">Install</a>
         </nav>
-        <span className="status-chip">v1.0.1 · released</span>
+        <span className="status-chip">v1.0.1 · released · validated: 2,108 FLAC / 75 GB / HiBy R4</span>
       </header>
+
+      <section id="screenshots">
+        <h2 className="section-title">see it in action</h2>
+        <div className="screenshot-hero">
+          <img src="/screenshots/demo.gif" alt="dapctl scan, diff, and sync demo" />
+        </div>
+        <div className="screenshot-grid">
+          <img src="/screenshots/tui-home.png" alt="dapctl home screen" />
+          <img src="/screenshots/tui-diff.png" alt="dapctl diff view" />
+          <img src="/screenshots/tui-player.png" alt="dapctl player view" />
+        </div>
+      </section>
 
       <section id="how-it-works">
         <h2 className="section-title">how it works</h2>
@@ -58,6 +74,25 @@ export default function Home() {
             <span className="step-desc">safe copy via temp+rename</span>
           </li>
         </ol>
+      </section>
+
+      <section id="why">
+        <h2 className="section-title">why dapctl?</h2>
+        <p className="status-text">
+          Generic tools don&apos;t know anything about your DAP. <code>rsync</code>
+          {' '}knows nothing about FAT32 filename limits, your device&apos;s
+          supported codecs, or the cache folders its firmware leaves behind.
+          Library managers like beets are excellent, but require adopting an
+          entire library-management workflow just to move files onto a
+          microSD card.
+        </p>
+        <ul className="features">
+          <li><strong>Filesystem limits</strong> — FAT32/exFAT filename and path-length limits, checked before you copy</li>
+          <li><strong>Per-device profiles</strong> — codec matrix, layout quirks, and firmware exclusion globs for each DAP</li>
+          <li><strong>Cache-aware</strong> — skips the junk folders DAP firmware leaves behind</li>
+          <li><strong>Preview first</strong> — <code>dapctl diff</code> shows exactly what would change before anything is written</li>
+          <li><strong>More than sync</strong> — audits your library, fetches and embeds cover art, and includes a full TUI music player, so you rarely need to leave the terminal</li>
+        </ul>
       </section>
 
       <section id="features">
