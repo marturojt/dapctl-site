@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'dapctl — TUI/CLI sync for HiFi DAPs',
   description: 'TUI/CLI sync tool for HiFi Digital Audio Players. DAP-aware profiles, dry-run, per-run manifest. Linux · macOS · Windows. GPLv3.',
   metadataBase: new URL('https://dapctl.com'),
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
     title: 'dapctl',
     description: 'TUI/CLI sync tool for HiFi Digital Audio Players',
